@@ -1,0 +1,58 @@
+<!-- PART 1 -->
+<html>
+    <title>VueJS SAANS</title>
+    <body>
+        <div id="app" v-if="show == 'Y'">
+            <!-- Render Data -->
+            {{ message }}
+            <br>
+            <!-- Buttom call to action -->
+            <button v-on:click="reverseMessage">Reverse Message</button>
+            
+            <br>
+            <!-- Input Data Binding -->
+            <input v-model="message">
+
+            <p></p>
+
+            <!-- Looping an array -->
+            <ul>
+                <li v-for="todo in todos">
+                    {{ todo.text }}
+                </li>
+            </ul>
+
+            <ol>
+                <li v-for="b in buah">
+                    {{ b }}
+                </li>
+            </ol>
+            <!-- Looping an array -->
+
+        </div>
+    </body>
+</html>
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue World!',
+            show: 'Y',
+            todos: [
+                { text: 'Learn JavaScript' },
+                { text: 'Learn Vue' },
+                { text: 'Build something awesome' }
+            ],
+            buah: [
+                "Jambu", "Kesemek", "Lengkeng"
+            ]
+        },
+        methods: {
+            reverseMessage: function () {
+                this.message = this.message.split('').reverse().join('')
+            }
+        }
+    })
+</script>
